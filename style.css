@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 5rem;
+    background: white;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+nav ul a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin-left: 5rem;
+    color: black;
+}
+
+.sliding-text {
+    height: 2rem;
+}
+
+h2 {
+    font-size: 5rem;
+}
+
+.logo {
+    position: absolute;
+    left: 62%;
+    top: 50%;
+    color: rgb(10, 10, 10);
+    font-size: 1.5rem;
+    transform: translate(-50%, -50%) scale(5);
+}
+
+.logo span {
+    font-size: 0.5rem;
+    color: rgb(50, 50, 50);
+}
+
+
+.home {
+    position: relative;
+    z-index: 1;
+    height: 100vh;    
+    overflow: hidden;
+}
+
+.image-container {
+    position: absolute;
+    top: 3rem;
+    left: 12rem;
+    height: 100vh; 
+    width: 100%;
+    width: max-content;
+    overflow: hidden;
+}
+
+.image {
+    height: 110%;
+}
+
+
+/* About Section */
+.about {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+    background: rgb(10, 10, 10);
+    color: white;
+}
+
+.about .description {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 3rem;
+    width: 40%;
+}
+
+.about .description p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    line-height: 1.5rem;
+}
+
+.about img {
+    height: 100%;
+}
+
