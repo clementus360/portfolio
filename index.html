@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 
     <link
       rel="stylesheet"
@@ -21,7 +22,9 @@
 <body>
     <section class="home">
 
-        <nav>
+        <nav class="nav">
+            <div class="white-background"></div>
+
             <div id="my-keen-slider" class="keen-slider sliding-text">
                 <h1 class="keen-slider__slide slide">Web development</h1>   
                 <h1 class="keen-slider__slide slide">UI/UX</h1>   
@@ -35,13 +38,18 @@
                 <li> <a href="#">Contact</a> </li>
             </ul>
         </nav>
-
-        <h1 class="logo">Miki<span>designs</span></h1>
+        <div class="logo">
+            <h1 >Miki<span>designs</span></h1>
+        </div>
 
     </section>
 
     <div class="image-container">
-        <img class="image" src="./src/20220317_105842copy.jpg" alt="" srcset="">
+        <img class="image" src="./src/20220317_105842copy-removebg.png" alt="" srcset="">
+    </div>
+
+    <div class="background-image">
+        <img src="./src/oleg-laptev-7jQh3EiS8Bs-unsplashcopy.jpg" alt="">
     </div>
 
     <section class="about">
@@ -56,6 +64,64 @@
             </p>
         </div>
         <img class="about-image" src="./src/20220317_105440copy.jpg" alt="myself pointing at you" srcset="">
+    </section>
+
+    <section class="projects">
+        <div class="project-card">
+            <div class="project-description">
+                <h1>TikTakToe</h1>
+                <p>TikTakToe is an online tic tac toe game which uses webrtc technology. The game also features a built-in video chat which allows to interact with other players</p>    
+            </div>
+            <img src="./src/Desktop - 1.png" alt="tiktaktoe" srcset="">
+        </div>
+    </section>
+
+    <section class="contact">
+
+        <div class="contact-container">
+            <h1>Let's talk</h1>
+            <div class="contact-info">
+                <p>This is my contact information</p>
+            </div>
+            <form action="" method="post">
+
+                <div class="input">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Name here...">
+                </div>
+
+                <div class="input">
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Email here...">
+                </div>
+
+                <div class="input">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+                </div>
+
+                <div class="input">
+                    <button type="submit">Send</button>
+                </div>
+                
+            </form>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="logo-images">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" class="icon" target="_blank"><img src="./src/html5.png" alt="HTML5"></a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" class="icon" target="_blank"><img src="./src/css3.png" alt="CSS3"></a>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" class="icon" target="_blank"><img src="./src/javascript.png" alt="Javascript"></a>
+            <a href="https://reactjs.org/" class="icon" target="_blank"><img src="./src/react.png" alt="Reactjs"></a>
+            <a href="https://nodejs.org/en/" class="icon" target="_blank"><img src="./src/node.png" alt="Nodejs"></a>
+            <a href="https://nextjs.org/" class="icon" target="_blank"><img src="./src/next.png" alt="Nextjs"></a>
+            <a href="https://sass-lang.com/" class="icon" target="_blank"><img src="./src/sass.png" alt="Sass"></a>
+            <a href="https://greensock.com/gsap/" class="icon" target="_blank"><img src="./src/gsap.svg" alt="Gsap"></a>
+            <a href="https://socket.io/" class="icon" target="_blank"><img src="./src/socketio.svg" alt="Socketio"></a>    
+            <a href="https://webrtc.org/" class="icon" target="_blank"><img src="./src/webrtc.png" alt="WebRTC"></a>            
+        </div>
+        <p class="copyright">©2020 MIKIdesigns</p>
     </section>
 
     

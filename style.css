@@ -1,3 +1,11 @@
+:root {
+    --black: #000000;
+    --grey: #252525;
+    --white: #ffffff;
+    --Oswald: 'Oswald', sans-serif;
+    --Roboto: 'Roboto', serif;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +13,7 @@
 }
 
 body {
-    font-family: 'Oswald', sans-serif;
+    font-family: var(--Oswald);
     width: 100vw;
     overflow-x: hidden;
 }
@@ -15,7 +23,7 @@ nav {
     display: flex;
     justify-content: space-between;
     padding: 1rem 5rem;
-    background: white;
+    color: var(--black);
 }
 
 nav ul {
@@ -28,7 +36,17 @@ nav ul a {
     text-decoration: none;
     font-size: 1.2rem;
     margin-left: 5rem;
-    color: black;
+    color: var(--black);
+}
+
+nav .white-background {
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 4rem;
+    background: var(--white);
 }
 
 .sliding-text {
@@ -41,18 +59,17 @@ h2 {
 
 .logo {
     position: absolute;
-    left: 62%;
+    left: 65vw;
     top: 50%;
-    color: rgb(10, 10, 10);
-    font-size: 1.5rem;
+    color: var(--black);
+    font-size: 1rem;
     transform: translate(-50%, -50%) scale(5);
 }
 
 .logo span {
     font-size: 0.5rem;
-    color: rgb(50, 50, 50);
+    color: var(--grey);
 }
-
 
 .home {
     position: relative;
@@ -72,7 +89,19 @@ h2 {
 }
 
 .image {
+    mix-blend-mode: color-dodge;
     height: 110%;
+}
+
+.background-image {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+}
+.background-image img{
+    width: 100vw;
+    height: 100vh;
+    filter: grayscale(100%)
 }
 
 
@@ -82,9 +111,9 @@ h2 {
     z-index: 0;
     display: flex;
     justify-content: space-around;
-    height: 100vh;
-    background: rgb(10, 10, 10);
-    color: white;
+    height: 95vh;
+    background-color: var(--black);
+    color: var(--white);
 }
 
 .about .description {
@@ -95,8 +124,12 @@ h2 {
     width: 40%;
 }
 
+.about .description h2 {
+    font-size: 3rem;
+}
+
 .about .description p {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--Roboto);
     font-weight: 200;
     line-height: 1.5rem;
 }
@@ -105,3 +138,178 @@ h2 {
     height: 100%;
 }
 
+/* Projects Section */
+
+.projects {
+    position: relative;
+    z-index: 0;
+    height: 100vh;
+    background: var(--white);
+    color: var(--black);
+    display: grid;
+    place-items: center;
+}
+
+.projects .project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    width: 85vw;
+}
+
+.projects .project-description .project-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.projects .project-card .project-description h1{
+    width: max-content;
+}
+
+.projects .project-card .project-description p {
+    font-family: var(--Roboto);
+    width: 90%;
+}
+
+.projects .project-card img{
+    border: 1px solid var(--white);
+    width: 90%;
+}
+
+/* Contact Section */
+
+.contact {
+    position: relative;
+    z-index: 0;
+    height: 110vh;
+    background: var(--black);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact .contact-container {
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content max-content;
+    justify-items: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.contact .contact-container h1 {
+    justify-self: center;
+    font-size: 2rem;
+    grid-column: 1/3;
+}
+
+.contact .contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 30vw;
+}
+
+.contact .contact-container form .input {
+    display: grid;
+    grid-column: 1fr 1fr;
+}
+
+.contact .contact-container form .input input{
+    background: transparent;
+    border-style: none;
+    border-bottom: 1px solid var(--white);
+    border-radius: 0;
+    color: var(--white);
+    height: 3rem;
+    transition: all 0.1s ease-in-out;
+}
+
+.contact .contact-container form .input input:focus{
+    border-bottom: 2px solid var(--white);
+    outline: none;
+    transition: all 0.1s ease-in-out;
+}
+
+.contact .contact-container form .input textarea{
+    font-family: 'Oswald', sans-serif;
+    height: 2rem;
+    padding: 0.5rem;
+    background: transparent;
+    border-style: none;
+    border: 1px solid var(--white);
+    color: var(--white);
+    resize: none;
+    transition: all 0.1s ease-in-out;
+}
+
+.contact .contact-container form .input textarea:focus{
+    border: 2px solid var(--white);
+    outline: none;
+    transition: all 0.1s ease-in-out;
+}
+
+.contact .contact-container form .input button{
+    font-family: 'Oswald', sans-serif;
+    border-style: none;
+    background: var(--white);
+    color: var(--black);
+    height: 2rem;
+    cursor: pointer;
+}
+.contact .contact-container form .input button:hover{
+    background: var(--grey);
+}
+
+
+/* Footer Section */
+
+.footer {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 40vh;
+    background: var(--white);
+    color: var(--black);
+}
+
+.footer .logo-images {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2vw;
+    width: max-content;
+}
+
+.footer .logo-images .icon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 6rem;
+    height: 6rem;
+}
+
+.footer .logo-images .icon img{
+    -webkit-filter: grayscale(100%) contrast(90%);
+    filter: grayscale(100%) contrast(90%);
+    width: 4rem;
+    height: auto;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+.footer .logo-images .icon img:hover{
+    -webkit-filter: grayscale(0%) contrast(100%);
+    filter: grayscale(0%) contrast(100%);
+    width: 5rem;
+    transition: all 0.1s ease-in-out;
+}
+
+.footer .copyright {
+    color: var(--grey);
+}
