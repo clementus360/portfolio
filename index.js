@@ -1,4 +1,10 @@
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+
 // ON-SCROLL ANIMATIONS HOME
+
+
 
 let tlSlidingText = gsap.timeline({
     scrollTrigger: {
@@ -36,66 +42,49 @@ let tlImage = gsap.timeline({
     },
 });
 
-let tlAboutTitlein = gsap.timeline({
-    scrollTrigger: {
-        trigger: '.home',
-        start: '0%',
-        end: '40%',
-        scrub: 1,
-    },
-});
-
-let tlAboutTitleout = gsap.timeline({
-  scrollTrigger: {
-      trigger: '.about',
-      start: '10%',
-      end: '100%',
-      scrub: 1,
-  },
-});
-
-let tlAboutTextin = gsap.timeline({
-    scrollTrigger: {
-        trigger: '.home',
-        start: '0%',
-        end: '60%',
-        scrub: 1, 
-    },
-});
-
-let tlAboutTextout = gsap.timeline({
-  scrollTrigger: {
-      trigger: '.about',
-      start: '30%',
-      end: '100%',
-      scrub: 1, 
-  },
-});
-
-let tlAboutImagein = gsap.timeline({
-    scrollTrigger: {
-        trigger: '.home',
-        start: '0%',
-        end: '80%',
-        scrub: 1,
-    },
-});
-
-let tlAboutImageout = gsap.timeline({
-  scrollTrigger: {
-      trigger: '.about',
-      start: '40%',
-      end: '100%',
-      scrub: 1,
-  },
-});
-
 let tlHomeSize = gsap.timeline({
   scrollTrigger: {
       trigger: '.home',
       start: '0%',
-      end: '200%',
+      end: '100%',
       scrub: 1,
+  }
+});
+
+
+let tlAbout = gsap.timeline({
+  scrollTrigger: {
+      trigger: '.about',
+      start: '0%',
+      end: '150%',
+      scrub: 5,
+      pin: true,
+      pinSpacing: false,
+      anticipatePin: 1,
+  }
+});
+
+let tlProjects = gsap.timeline({
+  scrollTrigger: {
+      trigger: '.projects',
+      start: '0%',
+      end: '150%',
+      scrub: true,
+      pin: true,
+      pinSpacing: false,
+      anticipatePin: 1,
+  }
+});
+
+let tlContact = gsap.timeline({
+  scrollTrigger: {
+      trigger: '.contact',
+      start: '0%',
+      end: '20%',
+      scrub: true,
+      pin: true,
+      pinSpacing: true,
+      anticipatePin: 1,
   }
 });
 
@@ -103,7 +92,7 @@ let tlHome = gsap.timeline({
     scrollTrigger: {
         trigger: '.home',
         start: '0%',
-        end: '300%',
+        end: '600%',
         scrub: 1,
         pin: true,
         pinSpacing: false,
@@ -111,21 +100,12 @@ let tlHome = gsap.timeline({
 });
 
 
-tlHomeSize.fromTo('.home', {height: '100vh'}, {height: '10vh'})
+
+tlHomeSize.to('.home', {height: '10vh'})
 tlSlidingText.fromTo('.sliding-text', {y:0}, {y:-400})
 tlLogo.fromTo('.logo', {scale: 5}, {scale: 1, top: '1.8rem', left: '5rem'})
 tlImage.fromTo('.image-container', {x:0}, {x: 1500})
 tlNav.fromTo('.white-background', {opacity:0}, {opacity: 1})
-
-
-// ON-SCROLL ANIMATIONS ABOUT PAGE
-tlAboutTitlein.fromTo('.about-title', {opacity: -5, y:500}, {opacity: 1, y:0})
-tlAboutTextin.fromTo('.about-text', {opacity: -5, y:500}, {opacity: 1, y:0})
-tlAboutImagein.fromTo('.about-image', {opacity: -5, y:1200}, {opacity: 1, y:0})
-
-tlAboutTitleout.fromTo('.about-title', {opacity: 1, y:0}, {opacity: -5, y:-500})
-tlAboutTextout.fromTo('.about-text', {opacity: 1, y:0}, {opacity: -5, y:-500})
-tlAboutImageout.fromTo('.about-image', {opacity: 1, y:0}, {opacity: -5, y:-1200})
 
 
 // SLIDER ANIMATION

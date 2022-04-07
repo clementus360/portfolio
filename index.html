@@ -26,11 +26,11 @@
             <div class="white-background"></div>
 
             <div id="my-keen-slider" class="keen-slider sliding-text">
-                <h1 class="keen-slider__slide slide">Web development</h1>   
-                <h1 class="keen-slider__slide slide">UI/UX</h1>   
-                <h1 class="keen-slider__slide slide">Motion Graphics</h1>   
+                <h1 class="keen-slider__slide slide">Web development</h1>
+                <h1 class="keen-slider__slide slide">UI/UX</h1>
+                <h1 class="keen-slider__slide slide">Motion Graphics</h1>
             </div>
-            
+
             <ul>
                 <li> <a href="#">Home</a> </li>
                 <li> <a href="#">About</a> </li>
@@ -48,36 +48,39 @@
         <img class="image" src="./src/20220317_105842copy-removebg.png" alt="" srcset="">
     </div>
 
-    <div class="background-image">
+    <!-- <div class="background-image">
         <img src="./src/oleg-laptev-7jQh3EiS8Bs-unsplashcopy.jpg" alt="">
-    </div>
+    </div> -->
 
     <section class="about">
-        <div class="description">
-            <h2 class="about-title">About me</h2><br>
-            <p class="about-text">
-                My name is ISHIMWE Clément and I am a freelancer based in Kigali,Rwanda.<br><br>
-                My skills include Web design and development using tools and software including but not limited to; Figma, Adobe XD, HTML, CSS, Javascript, Reactjs and Nodejs.<br><br>
-                Being a student myself, I firmly believe in the power of learning and I take advantage of that power to continue to enlarge my set of skills in order to satisfy a wider range technical needs.<br><br>
-                Also, being an anime fan, I believe in the power of friendship and the benefits that a little bit of support from peers can bring. That is why I am open to anyone contacting me with either a question or a piece of advice.
-            
-            </p>
+        <div class="about-container">
+            <div class="description">
+                <h2 class="about-title">About me</h2><br>
+                <p class="about-text">
+                    My name is ISHIMWE Clément and I am a freelancer based in Kigali,Rwanda.<br><br>
+                    My skills include Web design and development using tools and software including but not limited to; Figma, Adobe XD, HTML, CSS, Javascript, Reactjs and Nodejs.<br><br>
+                    Being a student myself, I firmly believe in the power of learning and I take advantage of that power to continue to enlarge my set of skills in order to satisfy a wider range technical needs.<br><br>
+                    Also, being an anime fan, I believe in the power of friendship and the benefits that a little bit of support from peers can bring. That is why I am open to anyone contacting me with either a question or a piece of advice.
+
+                </p>
+            </div>
+            <img class="about-image" src="./src/20220317_105440copy.jpg" alt="myself pointing at you" srcset="">
+
         </div>
-        <img class="about-image" src="./src/20220317_105440copy.jpg" alt="myself pointing at you" srcset="">
     </section>
 
     <section class="projects">
-        <div class="project-card">
-            <div class="project-description">
-                <h1>TikTakToe</h1>
-                <p>TikTakToe is an online tic tac toe game which uses webrtc technology. The game also features a built-in video chat which allows to interact with other players</p>    
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-description">
+                    <h1>TikTakToe</h1>
+                    <p>TikTakToe is an online tic tac toe game which uses webrtc technology. The game also features a built-in video chat which allows to interact with other players</p>
+                </div>
             </div>
-            <img src="./src/Desktop - 1.png" alt="tiktaktoe" srcset="">
         </div>
     </section>
 
     <section class="contact">
-
         <div class="contact-container">
             <h1>Let's talk</h1>
             <div class="contact-info">
@@ -97,13 +100,13 @@
 
                 <div class="input">
                     <label for="message">Message:</label>
-                    <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+                    <textarea id="message" name="message" placeholder="Write something.." style="height:150px"></textarea>
                 </div>
 
                 <div class="input">
                     <button type="submit">Send</button>
                 </div>
-                
+
             </form>
         </div>
     </section>
@@ -118,18 +121,26 @@
             <a href="https://nextjs.org/" class="icon" target="_blank"><img src="./src/next.png" alt="Nextjs"></a>
             <a href="https://sass-lang.com/" class="icon" target="_blank"><img src="./src/sass.png" alt="Sass"></a>
             <a href="https://greensock.com/gsap/" class="icon" target="_blank"><img src="./src/gsap.svg" alt="Gsap"></a>
-            <a href="https://socket.io/" class="icon" target="_blank"><img src="./src/socketio.svg" alt="Socketio"></a>    
-            <a href="https://webrtc.org/" class="icon" target="_blank"><img src="./src/webrtc.png" alt="WebRTC"></a>            
+            <a href="https://socket.io/" class="icon" target="_blank"><img src="./src/socketio.svg" alt="Socketio"></a>
+            <a href="https://webrtc.org/" class="icon" target="_blank"><img src="./src/webrtc.png" alt="WebRTC"></a>
+        </div>
+
+        <div class="socials">
+            <a href="#"><div class="social-icon"><img src="./src/github.svg" alt="" srcset=""></div></a>
+            <a href="#"><div class="social-icon"><img src="./src/linkedin.svg" alt="" srcset=""></div></a>
+            <a href="#"><div class="social-icon"><img src="./src/instagram.svg" alt="" srcset=""></div></a>
+            <a href="#"><div class="social-icon"><img src="./src/twitter.svg" alt="" srcset=""></div></a>
+            <a href="#"><div class="social-icon"><img src="./src/facebook.svg" alt="" srcset=""></div></a>
         </div>
         <p class="copyright">©2020 MIKIdesigns</p>
     </section>
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/keen-slider@6.6.4/keen-slider.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" integrity="sha512-5efjkDjhldlK+BrHauVYJpbjKrtNemLZksZWxd6Wdxvm06dceqWGLLNjZywOkvW7BF032ktHRMUOarbK9d60bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+
     <script src="index.js"></script>
 </body>
 </html>
