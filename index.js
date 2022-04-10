@@ -4,7 +4,33 @@ window.onbeforeunload = function () {
 
 // ON-SCROLL ANIMATIONS HOME
 
+ScrollTrigger.matchMedia({
 
+  // large
+  "(min-width: 960px)": function() {
+    // setup animations and ScrollTriggers for screens 960px wide or greater...
+    // These ScrollTriggers will be reverted/killed when the media query doesn't match anymore.
+  },
+
+  // medium
+  "(min-width: 600px) and (max-width: 959px)": function() {
+    // The ScrollTriggers created inside these functions are segregated and get
+    // reverted/killed when the media query doesn't match anymore.
+  },
+
+  // small
+  "(max-width: 599px)": function() {
+    // The ScrollTriggers created inside these functions are segregated and get
+    // reverted/killed when the media query doesn't match anymore.
+  },
+
+  // all
+  "all": function() {
+    // ScrollTriggers created here aren't associated with a particular media query,
+    // so they persist.
+  }
+
+});
 
 let tlSlidingText = gsap.timeline({
     scrollTrigger: {
@@ -51,42 +77,6 @@ let tlHomeSize = gsap.timeline({
   }
 });
 
-
-let tlAbout = gsap.timeline({
-  scrollTrigger: {
-      trigger: '.about',
-      start: '0%',
-      end: '150%',
-      scrub: 5,
-      pin: true,
-      pinSpacing: false,
-      anticipatePin: 1,
-  }
-});
-
-let tlProjects = gsap.timeline({
-  scrollTrigger: {
-      trigger: '.projects',
-      start: '0%',
-      end: '150%',
-      scrub: true,
-      pin: true,
-      pinSpacing: false,
-      anticipatePin: 1,
-  }
-});
-
-let tlContact = gsap.timeline({
-  scrollTrigger: {
-      trigger: '.contact',
-      start: '0%',
-      end: '20%',
-      scrub: true,
-      pin: true,
-      pinSpacing: true,
-      anticipatePin: 1,
-  }
-});
 
 let tlHome = gsap.timeline({
     scrollTrigger: {
@@ -147,3 +137,29 @@ var slider = new KeenSlider(
       },
     ]
   )
+
+
+
+  let newslider = new KeenSlider("#my-new-keen-slider", {
+    loop: true,
+    mode: "free",
+    slides: {
+      origin: "center",
+      perView: 2.2,
+      spacing: 50
+    },
+  })
+
+  const nextButton = document.querySelector('.right-button')
+  const previousButton = document.querySelector('.left-button')
+
+
+  nextButton.addEventListener('click', e => {
+    e.preventDefault()
+    newslider.next()
+  })
+
+  previousButton.addEventListener('click', e => {
+    e.preventDefault()
+    newslider.prev()
+  })
