@@ -145,8 +145,8 @@ var slider = new KeenSlider(
     mode: "free",
     slides: {
       origin: "center",
-      perView: 2.2,
-      spacing: 50
+      perView: 1.7,
+      spacing: 200
     },
   })
 
@@ -163,3 +163,44 @@ var slider = new KeenSlider(
     e.preventDefault()
     newslider.prev()
   })
+
+
+  // NAV-LINKS
+
+  const home = document.querySelector('.homeLink')
+  const about = document.querySelector('.aboutLink')
+  const projects = document.querySelector('.projectsLink')
+  const contact = document.querySelector('.contactLink')
+
+  homeSection = document.querySelector('.home')
+  aboutSection = document.querySelector('.about')
+  projectSection = document.querySelector('.projects')
+
+  home.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  })
+
+  about.addEventListener('click', () => {
+    window.scrollTo({
+      top: 100 * window.innerHeight/100,
+      behavior: "smooth"
+    });
+  })
+
+  projects.addEventListener('click', () => {
+    window.scrollTo({
+      top: 100 * window.innerHeight/100 + aboutSection.offsetHeight,
+      behavior: "smooth"
+    });
+  })
+
+  contact.addEventListener('click', () => {
+    window.scrollTo({
+      top: 100 * window.innerHeight/100 + aboutSection.offsetHeight + projectSection.offsetHeight,
+      behavior: "smooth"
+    });
+  })
+
