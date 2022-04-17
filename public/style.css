@@ -4,6 +4,7 @@
     --lessgrey: #999999;
     --lightgrey: #c3c3c3;
     --white: #ffffff;
+    --red: rgb(205, 25, 25);
     --titleFont: 'Oswald', sans-serif;
     --textFont: 'Roboto', serif;
 }
@@ -469,8 +470,13 @@ h2 {
     transition: all 0.1s ease-in-out;
 }
 
+.placeholder-red {
+    border: 2px solid var(--red) !important;
+}
+
 .contact .contact-container form .input input:-webkit-autofill {
-    -webkit-box-shadow:0 0 0 50px rgb(0, 0, 0) inset; /* Change the color to your own background color */
+    -webkit-box-shadow:0 0 0 50px rgb(0, 0, 0) inset;
+    box-shadow: 0 0 0 50px rgb(0, 0, 0) inset;
     -webkit-text-fill-color: var(--white);
 
 }

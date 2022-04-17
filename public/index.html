@@ -203,7 +203,8 @@
             <div class="contact-info">
                 <p>This is my contact information</p>
             </div>
-            <form action="" method="post">
+            <form id="contact-form" action="mailto:clementus360@gmail.com" enctype = "multipart/form-data" method="post">
+                <div id="alert" style="color: var(--red);"></div>
 
                 <div class="input">
                     <label for="name">Your Name:</label>
@@ -221,7 +222,7 @@
                 </div>
 
                 <div class="input">
-                    <button type="submit">Send</button>
+                    <button id="submit" type="submit">Send</button>
                 </div>
 
             </form>
@@ -236,6 +237,7 @@
             <a href="https://reactjs.org/" class="icon" target="_blank"><img src="./src/react.png" alt="Reactjs"></a>
             <a href="https://nodejs.org/en/" class="icon" target="_blank"><img src="./src/node.png" alt="Nodejs"></a>
             <a href="https://nextjs.org/" class="icon" target="_blank"><img src="./src/next.png" alt="Nextjs"></a>
+            <a href="https://tailwindcss.com/" class="icon" target="_blank"><img src="./src/tailwind.png" alt="Tailwindcss"></a>
             <a href="https://sass-lang.com/" class="icon" target="_blank"><img src="./src/sass.png" alt="Sass"></a>
             <a href="https://greensock.com/gsap/" class="icon" target="_blank"><img src="./src/gsap.svg" alt="Gsap"></a>
             <a href="https://socket.io/" class="icon" target="_blank"><img src="./src/socketio.svg" alt="Socketio"></a>
@@ -257,7 +259,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" integrity="sha512-5efjkDjhldlK+BrHauVYJpbjKrtNemLZksZWxd6Wdxvm06dceqWGLLNjZywOkvW7BF032ktHRMUOarbK9d60bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

@@ -1,36 +1,10 @@
+
+
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 }
 
-// ON-SCROLL ANIMATIONS HOME
-
-ScrollTrigger.matchMedia({
-
-  // large
-  "(min-width: 960px)": function() {
-    // setup animations and ScrollTriggers for screens 960px wide or greater...
-    // These ScrollTriggers will be reverted/killed when the media query doesn't match anymore.
-  },
-
-  // medium
-  "(min-width: 600px) and (max-width: 959px)": function() {
-    // The ScrollTriggers created inside these functions are segregated and get
-    // reverted/killed when the media query doesn't match anymore.
-  },
-
-  // small
-  "(max-width: 599px)": function() {
-    // The ScrollTriggers created inside these functions are segregated and get
-    // reverted/killed when the media query doesn't match anymore.
-  },
-
-  // all
-  "all": function() {
-    // ScrollTriggers created here aren't associated with a particular media query,
-    // so they persist.
-  }
-
-});
+// SCROLL-TRIGGER ANIMATIONS ANIMATIONS HOME
 
 let tlSlidingText = gsap.timeline({
     scrollTrigger: {
@@ -98,7 +72,7 @@ tlImage.fromTo('.image-container', {x:0}, {x: 1500})
 tlNav.fromTo('.white-background', {opacity:0}, {opacity: 1})
 
 
-// SLIDER ANIMATION
+// ADDING AUTOMATIC KEEN-SLIDER CAROUSEL ON SMALL TEXT IN THE TOP-LEFT CORNER OF HOME
 var slider = new KeenSlider(
     "#my-keen-slider",
     {
@@ -139,6 +113,7 @@ var slider = new KeenSlider(
   )
 
 
+  // ADDING MANUAL KEEN-SLIDER CAROUSEL ON PROJECTS
 
   let newslider = new KeenSlider("#my-new-keen-slider", {
     loop: true,
@@ -165,7 +140,7 @@ var slider = new KeenSlider(
   })
 
 
-  // NAV-LINKS
+  // LISTEN TO CLICKED LINKS AND SCROLL DOWN OR UP APPROPRIATELY
 
   const home = document.querySelector('.homeLink')
   const about = document.querySelector('.aboutLink')
@@ -204,3 +179,99 @@ var slider = new KeenSlider(
     });
   })
 
+
+  // VALIDATE CONTACT FIELDS AND SEND EMAIL REQUEST TO SERVER(NOT PARTICULARLY IN THAT ORDER)
+  const name = document.getElementById('name')
+  const email = document.getElementById('email')
+  const message = document.getElementById('message')
+  const notice = document.getElementById('alert')
+  const submitButton = document.getElementById('submit')
+  const form = document.getElementById('contact-form')
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    submitButton.disabled = true
+
+    notice.innerText = ''
+    isValid()
+    if (isValid()) {
+      let mail = new FormData(form);
+      sendMail(mail);
+    }
+  })
+
+  const sendMail = mail => {
+    axios.post('/send', mail).then(res => {
+      alert('Email sent successfully')
+      name.value = ''
+      email.value = ''
+      message.value = ''
+      submitButton.disabled = false
+    }).catch(err => {
+      alert('Failed to send email')
+      submitButton.disabled = false
+    })
+  }
+
+
+  function isValid() {
+    let valid = true;
+
+    valid &= fieldValidation(message, isNotEmpty);
+    valid &= fieldValidation(email, checkEmail);
+    valid &= fieldValidation(name, isNotEmpty);
+
+    if (!valid) {
+      submitButton.disabled = false
+    }
+
+    return valid;
+   }
+
+   function fieldValidation(field, validationFunction) {
+    if (field == null) return false
+
+    let isFieldValid = validationFunction(field)
+    if (!isFieldValid) {
+    field.className = 'placeholder-red';
+    } else {
+    field.className = '';
+    }
+
+    return isFieldValid;
+
+  }
+
+   const checkEmail = (element) => {
+    let email = element.value
+    let regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+    if (!regex.test(String(email).toLowerCase())) {
+      notice.innerText = "Email is incorrect"
+    }
+    return regex.test(String(email).toLowerCase());
+  }
+
+   const isNotEmpty = (element) => {
+    let value = element.value
+
+    if (value == null || typeof value == 'undefined' ) {
+      alertMessage(element)
+      return false
+    };
+
+    if (!(value.length > 0)) alertMessage(element)
+
+    return (value.length > 0);
+   }
+
+
+   function alertMessage(element) {
+
+    if (element.id == 'name') {
+      notice.innerText = "Remember your name"
+    }
+    else if (element.id == 'message') {
+      notice.innerText = "Come on!!! write me something"
+    }
+   }
