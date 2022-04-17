@@ -511,6 +511,11 @@ h2 {
     background: var(--grey);
 }
 
+.contact .contact-container form .input button:disabled {
+    background: var(--grey);
+    cursor: default;
+}
+
 
 /* Footer Section */
 
