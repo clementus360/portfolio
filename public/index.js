@@ -1,5 +1,3 @@
-
-
 window.onbeforeunload = function () {
   window.scrollTo(0, 0);
 }
@@ -18,11 +16,29 @@ let tlSlidingText = gsap.timeline({
 let tlLogo = gsap.timeline({
     scrollTrigger: {
         trigger: '.home',
-        start: '0%',
-        end: '100%',
+        start: '8%',
+        end: '74%',
         scrub: 1,
     },
 });
+
+let tlMessage = gsap.timeline({
+  scrollTrigger: {
+      trigger: '.home',
+      start: '8%',
+      end: '74%',
+      scrub: 1,
+  },
+});
+
+let tlSocial = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.home',
+    start: '0%',
+    end: '40%',
+    scrub: 1
+  }
+})
 
 let tlNav = gsap.timeline({
   scrollTrigger: {
@@ -67,8 +83,10 @@ let tlHome = gsap.timeline({
 
 tlHomeSize.to('.home', {height: '10vh'})
 tlSlidingText.fromTo('.sliding-text', {y:0}, {y:-400})
-tlLogo.fromTo('.logo', {scale: 5}, {scale: 1, top: '1.8rem', left: '5rem'})
-tlImage.fromTo('.image-container', {x:0}, {x: 1500})
+tlLogo.fromTo('.logo', {clipPath: 'polygon(0 0,100% 0,200% 200%,0 200%)'}, {top: '25vw', clipPath: 'polygon(100% 0,100% 0,200% 200%,100% 200%)'})
+tlMessage.fromTo('.message', {opacity: 1}, {opacity: 0, top: '33vw'})
+tlSocial.fromTo('.homeSocials', {scale: 1, opacity: 1}, {top: '16.4rem', opacity: 0})
+tlImage.fromTo('.image-container', {x:0}, {x: '100vw'})
 tlNav.fromTo('.white-background', {opacity:0}, {opacity: 1})
 
 
@@ -178,7 +196,6 @@ var slider = new KeenSlider(
       behavior: "smooth"
     });
   })
-
 
   // VALIDATE CONTACT FIELDS AND SEND EMAIL REQUEST TO SERVER(NOT PARTICULARLY IN THAT ORDER)
   const name = document.getElementById('name')
