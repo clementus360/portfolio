@@ -68,26 +68,28 @@ let tlHomeSize = gsap.timeline({
 });
 
 
-let tlHome = gsap.timeline({
-    scrollTrigger: {
-        trigger: '.home',
-        start: '0%',
-        end: '600%',
-        scrub: 1,
-        pin: true,
-        pinSpacing: false,
-    }
-});
+ScrollTrigger.matchMedia({
+  "(min-width: 480px)": function() {
+    let tlHome = gsap.timeline({
+      scrollTrigger: {
+          trigger: '.home',
+          start: '0%',
+          end: '600%',
+          scrub: 1,
+          pin: true,
+          pinSpacing: false,
+      }
+    });
+    tlHomeSize.to('.home', {height: '10vh'})
+    tlSlidingText.fromTo('.sliding-text', {y:0}, {y:-400})
+    tlLogo.fromTo('.logo', {clipPath: 'polygon(0 0,100% 0,200% 200%,0 200%)'}, {top: '25vw', clipPath: 'polygon(100% 0,100% 0,200% 200%,100% 200%)'})
+    tlMessage.fromTo('.message', {opacity: 1}, {opacity: 0, top: '33vw'})
+    tlSocial.fromTo('.homeSocials', {scale: 1, opacity: 1}, {top: '16.4rem', opacity: 0})
+    tlImage.fromTo('.image-container', {x:0}, {x: '100vw'})
+    tlNav.fromTo('.white-background', {opacity:0}, {opacity: 1})
+  }
+})
 
-
-
-tlHomeSize.to('.home', {height: '10vh'})
-tlSlidingText.fromTo('.sliding-text', {y:0}, {y:-400})
-tlLogo.fromTo('.logo', {clipPath: 'polygon(0 0,100% 0,200% 200%,0 200%)'}, {top: '25vw', clipPath: 'polygon(100% 0,100% 0,200% 200%,100% 200%)'})
-tlMessage.fromTo('.message', {opacity: 1}, {opacity: 0, top: '33vw'})
-tlSocial.fromTo('.homeSocials', {scale: 1, opacity: 1}, {top: '16.4rem', opacity: 0})
-tlImage.fromTo('.image-container', {x:0}, {x: '100vw'})
-tlNav.fromTo('.white-background', {opacity:0}, {opacity: 1})
 
 
 // ADDING AUTOMATIC KEEN-SLIDER CAROUSEL ON SMALL TEXT IN THE TOP-LEFT CORNER OF HOME
@@ -133,13 +135,14 @@ var slider = new KeenSlider(
 
   // ADDING MANUAL KEEN-SLIDER CAROUSEL ON PROJECTS
 
+  let viewport = window.innerWidth;
+
   let newslider = new KeenSlider("#my-new-keen-slider", {
     loop: true,
-    mode: "free",
     slides: {
       origin: "center",
-      perView: 1.7,
-      spacing: 200
+      perView: viewport > 480 ? 1.7:1,
+      spacing: viewport > 480 ? 150:0
     },
   })
 
